@@ -16,7 +16,6 @@ It turns out you can build an entire URL shortening service with nothing but Git
 
 Fork this repo.
 
-Setup gh-pages and Actions. Make sure you create an orphaned gh-pages branch
-or else the GitHub Action won't work.
+Setup Actions and gh-pages.
 
 Add and edit short url links by editing the files in the `/links` directory.
