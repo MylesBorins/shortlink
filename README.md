@@ -16,6 +16,9 @@ It turns out you can build an entire URL shortening service with nothing but Git
 
 Fork this repo.
 
+Edit the action in `.github/workflows` to add a CNAME to your own domain, or remove that line
+entirely to use `username.github.io/shortlink`.
+
 Setup Actions and gh-pages.
 
 Add and edit short url links by editing the files in the `/links` directory.
