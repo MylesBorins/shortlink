@@ -1,0 +1,24 @@
+{
+  "name": "shortlink",
+  "version": "0.0.0",
+  "description": "> omg this actually works",
+  "main": "build.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node build.js && npx st -d dist -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeal/shortlink.git"
+  },
+  "keywords": [],
+  "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (https://www.mikealrogers.com/)",
+  "license": "(Apache-2.0 AND MIT)",
+  "bugs": {
+    "url": "https://github.com/mikeal/shortlink/issues"
+  },
+  "homepage": "https://github.com/mikeal/shortlink#readme",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}
