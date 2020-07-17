@@ -16,11 +16,11 @@ const html = link => `<!DOCTYPE html>
 </html>
 `
 
-async function gracefulmkdir(f) {
+const gracefulmkdir = async f => {
   try { await mkdir(f) } catch (e) {}
 }
 
-async function renderHTML(f) {
+const renderHTML = async f => {
   const fileURL = new URL(f, links)
   const b = await readFile(fileURL)
   const d = new URL(`${f}/`, dist)
