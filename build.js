@@ -34,6 +34,7 @@ const run = async () => {
       return mkdir(d).then(() => fs.writeFile(join(d, 'index.html'), html(b.toString())))
     }))
   }
+  promises.push(fs.writeFile(join(dist, 'index.html'), html('https://github.com/mikeal/shortlink')))
   await Promise.all(promises)
   console.log('done')
 }
