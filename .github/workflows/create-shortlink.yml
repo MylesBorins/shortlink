@@ -28,4 +28,4 @@ jobs:
     - name: Install shortlink
       run: ./install.sh kni.sh
     - name: Publish shortlink
-      run: ~/.bin/shortlink  ${{ github.event.inputs.url }} ${{ github.event.inputs.short-url }}
+      run: TMPDIR=${{ runner.temp }} ~/.bin/shortlink  ${{ github.event.inputs.url }} ${{ github.event.inputs.short-url }}
