@@ -1,7 +1,4 @@
 name: Create Shortlink
-
-permissions:
-  id-token: write
 on:
   workflow_dispatch:
     inputs:
@@ -13,29 +10,20 @@ on:
         description: 'The short-url to use in the shortlink (OPTIONAL)'
         type: string
 jobs:
-  get_OIDC_ID_token:
+  create-shortlink:
     name: Get OIDC Token from GCP
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
+    # actions/checkout MUST come before auth
+    - uses: 'actions/checkout@v3'
     - id: 'auth'
       name: 'Authenticate to GCP'
-      uses: 'google-github-actions/auth@v0.3.1'
+      uses: 'google-github-actions/auth@v1'
       with:
-          create_credentials_file: 'true'
-          workload_identity_provider: 'actions-provider'
+          workload_identity_provider: 'projects/300964558877/locations/global/workloadIdentityPools/actions-pool/providers/actions-provider'
           service_account: 'upload-to-knish-gcs@the-static-zone.iam.gserviceaccount.com'
-    - id: 'gcloud'
-      name: 'gcloud'
-      run: |-
-        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}" --project=the-static-zone
-        gcloud services list
-  create-shortlink:
-    name: Create Shortlink
-    runs-on: ubuntu-latest
-    needs: get_OIDC_ID_token
-    steps:
-    - name: Check out source
-      uses: actions/checkout@v2
-
     - name: Publish shortlink
       run: BASE_URL=kni.sh ./shortlink.sh ${{ github.event.inputs.url }} ${{ github.event.inputs.short-url }}
