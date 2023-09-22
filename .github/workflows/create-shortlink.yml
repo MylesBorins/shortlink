@@ -14,7 +14,7 @@ on:
         type: string
 jobs:
   Get_OIDC_ID_token:
-    names: Get OIDC Token from GCP
+    name: Get OIDC Token from GCP
     runs-on: ubuntu-latest
     steps:
     - id: 'auth'
