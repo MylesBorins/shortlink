@@ -11,7 +11,7 @@ on:
         type: string
 jobs:
   create-shortlink:
-    name: Get OIDC Token from GCP
+    name: Create Shortlink on GCP
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
