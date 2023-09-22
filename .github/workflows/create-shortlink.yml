@@ -25,8 +25,7 @@ jobs:
       with:
           workload_identity_provider: 'projects/300964558877/locations/global/workloadIdentityPools/actions-pool/providers/actions-provider'
           service_account: 'upload-to-knish-gcs@the-static-zone.iam.gserviceaccount.com'
-    - run: ls
     - name: Install shortlink
-      run: ./install kni.sh
+      run: ./install.sh kni.sh
     - name: Publish shortlink
       run: ~/.bin/shortlink  ${{ github.event.inputs.url }} ${{ github.event.inputs.short-url }}
