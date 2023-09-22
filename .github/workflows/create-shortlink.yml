@@ -25,6 +25,8 @@ jobs:
       with:
           workload_identity_provider: 'projects/300964558877/locations/global/workloadIdentityPools/actions-pool/providers/actions-provider'
           service_account: 'upload-to-knish-gcs@the-static-zone.iam.gserviceaccount.com'
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
     - name: Install shortlink
       run: ./install.sh kni.sh
     - name: Publish shortlink
